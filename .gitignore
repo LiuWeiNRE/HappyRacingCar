@@ -1,8 +1,8 @@
-#忽略文件夹
+﻿#忽略文件夹
 HappyRacingCar/.vs
 HappyRacingCar/Library
 HappyRacingCar/UnityPackageManager
-
+HappyRacingCar/Temp
 #忽略文件
 *.csproj
 *.sln
