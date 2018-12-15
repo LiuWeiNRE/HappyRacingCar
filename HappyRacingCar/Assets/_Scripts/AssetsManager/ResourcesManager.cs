@@ -1,35 +1,18 @@
-﻿using UnityEngine;
+﻿/*从 Resources 文件夹下加载各种资源的工具类*/
+using UnityEngine;
 
 public class ResourcesManager
 {
-    #region --变量定义
-    private static ResourcesManager instance;
-    #endregion
-
-    #region --属性
-    public static ResourcesManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new ResourcesManager();
-            }
-            return instance;
-        }
-    }
-    #endregion
-
     #region --自定义函数
     /// <summary>
-    /// 从Resources文件夹下加载资源
+    /// 根据路径从 Resources 文件夹加载类型为 T 的资源
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="assetPath"></param>
+    /// <typeparam name="T">资源类型</typeparam>
+    /// <param name="_assetPath">资源路径。相对于 Resources 文件夹的路径</param>
     /// <returns></returns>
-    public static T Load<T>(string assetPath) where T : Object
+    public static T Load<T>(string _assetPath) where T : Object
     {
-        return Resources.Load<T>(assetPath);
+        return Resources.Load<T>(_assetPath);
     }
     #endregion
 }
