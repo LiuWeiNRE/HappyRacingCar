@@ -63,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1831866606840196
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,6 +72,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224733038813655926}
+  - component: {fileID: 114912243997311340}
   m_Layer: 5
   m_Name: ContainerLogindenglu
   m_TagString: Untagged
@@ -406,6 +407,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114912243997311340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831866606840196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5150348a2263934b9d4b4fa62144ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114916476453245218
 MonoBehaviour:
   m_ObjectHideFlags: 1

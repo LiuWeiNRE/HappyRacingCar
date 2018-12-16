@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using DG.Tweening;
+﻿using DG.Tweening;
 
 public partial class ContainerBeforeLoginUIController : UIControllerBase 
 {

@@ -122,6 +122,10 @@ public partial class PanelMainUIController : UIControllerBase
     {
         CleanAllUI();
         AddUIPanel(UILayer.Bottom, "ContainerLogindenglu");
+        if (UIControllerConst.DEBUG_FPS)
+        {
+            AddUIPanel(UILayer.Debug, "DebugFPS");
+        }
     }
     #endregion
 
