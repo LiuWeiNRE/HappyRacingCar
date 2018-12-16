@@ -15,7 +15,8 @@ public class GameResourcesManager
     /// <returns></returns>
     public static GameObject GetUIPrefab(string _name)
     {
-        return ResourcesManager.Load<GameObject>(UI_PATH + _name);
+        GameObject _uiPrefab = ResourcesManager.Load<GameObject>(UI_PATH + _name);
+        return GameObject.Instantiate<GameObject>(_uiPrefab);
     }
     #endregion
 }

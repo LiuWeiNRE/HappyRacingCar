@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224126580011733998}
+  - component: {fileID: 114424904994126868}
   m_Layer: 5
   m_Name: ContainerBeforeLogin
   m_TagString: Untagged
@@ -87,6 +88,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114424904994126868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1711453220094108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9376022f1d2de1a478ba3a14af1ef0c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114876624200612700
 MonoBehaviour:
   m_ObjectHideFlags: 1
