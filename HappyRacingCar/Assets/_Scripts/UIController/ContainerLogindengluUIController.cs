@@ -35,6 +35,8 @@ public partial class ContainerLogindengluUIController : UIControllerBase
     private void KaiShiYouXiButtonOnClick()
     {
         Debug.Log("开始游戏！");
+        PanelMainUIController.Instance.CleanAllUI();
+        PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.Bottom, "ContainerLoginxuanren");
     }
 
     /// <summary>
