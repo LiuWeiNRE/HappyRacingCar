@@ -625,14 +625,14 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114830189538309588}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 114841811235240380}
   m_Group: {fileID: 114803141202388256}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &114075648546257080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
   m_Text: 
   m_CaretBlinkRate: 0.85
-  m_CaretWidth: 1
+  m_CaretWidth: 2
   m_ReadOnly: 0
 --- !u!114 &114203855224392152
 MonoBehaviour:
@@ -832,14 +832,14 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114850018816072996}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 114371099529049566}
   m_Group: {fileID: 114803141202388256}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &114260958888820414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -931,14 +931,14 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114923656112749432}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 114260958888820414}
   m_Group: {fileID: 114803141202388256}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &114371099529049566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1063,14 +1063,14 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114617779816647060}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 114950652236222068}
   m_Group: {fileID: 114803141202388256}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &114496109432573066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1200,14 +1200,14 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 114496109432573066}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 114072464915676214}
   m_Group: {fileID: 114803141202388256}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &114553117649802890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1345,7 +1345,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &114803141202388256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2092,7 +2092,7 @@ RectTransform:
   m_GameObject: {fileID: 1019536432453310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 224532668706955342}
   - {fileID: 224183166469940320}
