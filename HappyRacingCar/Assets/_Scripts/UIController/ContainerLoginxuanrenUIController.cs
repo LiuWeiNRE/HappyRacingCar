@@ -1,24 +1,39 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public partial class ContainerLoginxuanrenUIController : UIControllerBase
 {
     #region --变量定义
-    private ToggleGroup roleSelectToggleGroup;
+    /// <summary>
+    /// 角色选择结果。默认为第一个何炅。
+    /// </summary>
+    [HideInInspector] public int roleResult = 1;
+    /// <summary>
+    /// 性别选择结果。默认为男孩boy。
+    /// </summary>
+    [HideInInspector] public string sexResult = "boy";
 
+    private ToggleGroup roleSelectToggleGroup;//角色选择ToggleGroup组
+    private ToggleGroup sexSelectToggleGroup;//性别选择ToggleGroup组
     #endregion
 
     #region --系统函数
     private void Start()
     {
         Init();
+        InitUIEvent();
     }
     #endregion
 
     #region --自定义函数
     private void Init()
     {
+        //获取组件
+        roleSelectToggleGroup = this.BackGround.GetComponent<ToggleGroup>();
+        sexSelectToggleGroup = this.SexBoyToggle.GetComponent<ToggleGroup>();
+
         //设置默认人物和性别
         this.HeJiongToggle.GetComponent<Toggle>().isOn = true;
         this.SexBoyToggle.GetComponent<Toggle>().isOn = true;
@@ -38,7 +53,7 @@ public partial class ContainerLoginxuanrenUIController : UIControllerBase
         //设置所有选人按钮动画
         Sequence _sequence3 = DOTween.Sequence();
         Transform _selectStateImage = this.HeJiongToggle.transform.Find("SelectStateImage");
-        _sequence3.Append(_selectStateImage.DOScale(new Vector3(1.06f,1.06f,1f), 0.5f).SetEase(Ease.Linear));
+        _sequence3.Append(_selectStateImage.DOScale(new Vector3(1.06f, 1.06f, 1f), 0.5f).SetEase(Ease.Linear));
         _sequence3.Append(_selectStateImage.DOScale(new Vector3(0.98f, 0.98f, 1f), 0.5f).SetEase(Ease.Linear));
         _sequence3.SetLoops(-1);
         Sequence _sequence4 = DOTween.Sequence();
@@ -64,6 +79,76 @@ public partial class ContainerLoginxuanrenUIController : UIControllerBase
 
     }
     private void InitUIEvent()
-    { }
+    {
+        //给选人Toggle添加事件
+        this.HeJiongToggle.GetComponent<Toggle>().onValueChanged.AddListener(SelectRoleToggleOnChange);
+        this.XieNaToggle.GetComponent<Toggle>().onValueChanged.AddListener(SelectRoleToggleOnChange);
+        this.WuXinToggle.GetComponent<Toggle>().onValueChanged.AddListener(SelectRoleToggleOnChange);
+        this.WeiJiaToggle.GetComponent<Toggle>().onValueChanged.AddListener(SelectRoleToggleOnChange);
+        this.DuHaiTaoToggle.GetComponent<Toggle>().onValueChanged.AddListener(SelectRoleToggleOnChange);
+
+        //给选性别Toggle添加事件
+        this.SexBoyToggle.GetComponent<Toggle>().onValueChanged.AddListener(SelectSexToggleOnChange);
+        this.SexGirlToggle.GetComponent<Toggle>().onValueChanged.AddListener(SelectSexToggleOnChange);
+    }
+
+    /// <summary>
+    /// 选人Toggle点击事件
+    /// </summary>
+    /// <param name="_value"></param>
+    private void SelectRoleToggleOnChange(bool _value)
+    {
+        if (!_value)
+        {
+            return;
+        }
+        IEnumerable<Toggle> _toggles = roleSelectToggleGroup.ActiveToggles();
+        foreach (Toggle item in _toggles)
+        {
+            if (item.gameObject.name.Equals(this.HeJiongToggle.name))
+            {
+                roleResult = 1;
+            }
+            else if (item.gameObject.name.Equals(this.XieNaToggle.name))
+            {
+                roleResult = 2;
+            }
+            else if (item.gameObject.name.Equals(this.WuXinToggle.name))
+            {
+                roleResult = 3;
+            }
+            else if (item.gameObject.name.Equals(this.WeiJiaToggle.name))
+            {
+                roleResult = 4;
+            }
+            else if (item.gameObject.name.Equals(this.DuHaiTaoToggle.name))
+            {
+                roleResult = 5;
+            }
+        }
+    }
+    /// <summary>
+    /// 选性别Toggle点击事件
+    /// </summary>
+    /// <param name="_value"></param>
+    private void SelectSexToggleOnChange(bool _value)
+    {
+        if (!_value)
+        {
+            return;
+        }
+        IEnumerable<Toggle> _toggles = sexSelectToggleGroup.ActiveToggles();
+        foreach (Toggle item in _toggles)
+        {
+            if (item.gameObject.name.Equals(this.SexBoyToggle.name))
+            {
+                sexResult = "Boy";
+            }
+            else if (item.gameObject.name.Equals(this.SexGirlToggle.name))
+            {
+                sexResult = "Girl";
+            }
+        }
+    }
     #endregion
 }

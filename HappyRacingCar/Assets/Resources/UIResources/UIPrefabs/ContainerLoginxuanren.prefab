@@ -1109,6 +1109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affb6802e87d0824e97151946af763c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roleResult: 1
+  sexResult: boy
 --- !u!114 &114509117448268226
 MonoBehaviour:
   m_ObjectHideFlags: 1
