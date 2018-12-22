@@ -14,9 +14,17 @@ public partial class ContainerLoginxuanrenUIController : UIControllerBase
     /// 性别选择结果。默认为男孩boy。
     /// </summary>
     [HideInInspector] public string sexResult = "boy";
+    /// <summary>
+    /// 玩家昵称
+    /// </summary>
+    private string nickName;
 
+    private InputField nickNameInputField;//玩家昵称输入框
+    private Text errorHintText;//错误提示框
     private ToggleGroup roleSelectToggleGroup;//角色选择ToggleGroup组
     private ToggleGroup sexSelectToggleGroup;//性别选择ToggleGroup组
+
+    private string errorString = "请输入昵称或随机产生一个昵称，昵称不可为空";
     #endregion
 
     #region --系统函数
@@ -24,6 +32,7 @@ public partial class ContainerLoginxuanrenUIController : UIControllerBase
     {
         Init();
         InitUIEvent();
+        InitNickName();
     }
     #endregion
 
@@ -31,6 +40,8 @@ public partial class ContainerLoginxuanrenUIController : UIControllerBase
     private void Init()
     {
         //获取组件
+        nickNameInputField = this.PlayerNameInputField.GetComponent<InputField>();
+        errorHintText = this.HintText.GetComponent<Text>();
         roleSelectToggleGroup = this.BackGround.GetComponent<ToggleGroup>();
         sexSelectToggleGroup = this.SexBoyToggle.GetComponent<ToggleGroup>();
 
@@ -90,6 +101,17 @@ public partial class ContainerLoginxuanrenUIController : UIControllerBase
         //给选性别Toggle添加事件
         this.SexBoyToggle.GetComponent<Toggle>().onValueChanged.AddListener(SelectSexToggleOnChange);
         this.SexGirlToggle.GetComponent<Toggle>().onValueChanged.AddListener(SelectSexToggleOnChange);
+
+        //玩家昵称UI相关事件
+        this.nickNameInputField.onValueChanged.AddListener(InputNameOnValueChange);
+        this.ShaiZiButton.GetComponent<Button>().onClick.AddListener(ShaiZiButtonOnClick);
+
+        //给点击进入游戏按钮添加事件
+        this.PressEnterButton.GetComponent<Button>().onClick.AddListener(PressEnterButtonOnclick);
+    }
+    private void InitNickName()
+    {
+        ShaiZiButtonOnClick();
     }
 
     /// <summary>
@@ -149,6 +171,37 @@ public partial class ContainerLoginxuanrenUIController : UIControllerBase
                 sexResult = "Girl";
             }
         }
+    }
+    /// <summary>
+    /// 当输入玩家昵称时
+    /// </summary>
+    /// <param name="_nickName"></param>
+    private void InputNameOnValueChange(string _nickName)
+    {
+        if (_nickName.Length > 0)
+        {
+            nickName = _nickName;
+            errorHintText.text = string.Empty;
+            return;
+        }
+        errorHintText.text = errorString;
+    }
+    /// <summary>
+    /// 筛子按钮响应事件
+    /// </summary>
+    private void ShaiZiButtonOnClick()
+    {
+        nickName = "玩家" + Random.Range(0, 10);
+        nickNameInputField.text = nickName;
+        errorHintText.text = string.Empty;
+    }
+    /// <summary>
+    /// 点击进入游戏按钮响应事件
+    /// </summary>
+    private void PressEnterButtonOnclick()
+    {
+        Debug.LogFormat("roleResult: {0};sexResult: {1};nickName: {2}", roleResult, sexResult, nickName);
+        PanelMainUIController.Instance.EnterHall();
     }
     #endregion
 }

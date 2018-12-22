@@ -127,6 +127,14 @@ public partial class PanelMainUIController : UIControllerBase
             AddUIPanel(UILayer.Debug, "DebugFPS");
         }
     }
+    /// <summary>
+    /// 进入大厅
+    /// </summary>
+    public void EnterHall()
+    {
+        CleanAllUI();
+        Debug.Log("进入大厅");
+    }
     #endregion
 
     /// <summary>
