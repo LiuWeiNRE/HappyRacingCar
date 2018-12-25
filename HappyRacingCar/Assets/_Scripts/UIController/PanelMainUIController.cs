@@ -133,7 +133,8 @@ public partial class PanelMainUIController : UIControllerBase
     public void EnterHall()
     {
         CleanAllUI();
-        Debug.Log("进入大厅");
+        AddUIPanel(UILayer.Bottom, "ContainerMainzhujiemian");
+        Debug.Log("进入游戏大厅");
     }
     #endregion
 
