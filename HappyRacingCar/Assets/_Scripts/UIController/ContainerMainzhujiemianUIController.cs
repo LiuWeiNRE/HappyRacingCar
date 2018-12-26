@@ -1,4 +1,6 @@
-﻿public partial class ContainerMainzhujiemianUIController : UIControllerBase 
+﻿using UnityEngine;
+
+public partial class ContainerMainzhujiemianUIController : UIControllerBase 
 {
     #region --变量定义
 
@@ -33,8 +35,10 @@
         //3. 保存数据
 
         //弹出界面 
-        PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_MEI_RI_LOGIN);
+        GameObject _containerMeiRiLogIn = PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_MEI_RI_LOGIN);
         //设置 当前是第几天
+        _containerMeiRiLogIn.GetComponent<ContainerMeiRiLogInUIController>().SetDailyRewards(1);
+
     }
     #endregion
 }
