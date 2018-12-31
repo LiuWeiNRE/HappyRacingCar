@@ -13,6 +13,10 @@ public class UIControllerConst
     /// 每日登陆奖励UI界面名称
     /// </summary>
     public const string UI_PREFEB_MEI_RI_LOGIN = "ContainerMeiRiLogIn";
+    /// <summary>
+    /// 头像更换界面
+    /// </summary>
+    public const string UI_PREFEB_HEAD_SELECTION = "ContainerHeadSelection";
     #endregion
 
     #endregion

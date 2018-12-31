@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224256000995407930}
   - component: {fileID: 222302088401372636}
+  - component: {fileID: 114203087653832706}
   m_Layer: 5
   m_Name: ContainerHeadSelection
   m_TagString: Untagged
@@ -646,6 +647,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114203087653832706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363124122409744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6154309279f901d40ae20dd9d32a3233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114218636007601464
 MonoBehaviour:
   m_ObjectHideFlags: 1

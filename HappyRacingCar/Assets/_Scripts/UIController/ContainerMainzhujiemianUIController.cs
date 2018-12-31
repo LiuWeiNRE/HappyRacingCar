@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public partial class ContainerMainzhujiemianUIController : UIControllerBase 
 {
@@ -10,10 +11,16 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     private void Start()
     {
         CheckMeiRiLogInUI();
+        InitUIEvent();
     }
     #endregion
 
     #region --自定义函数
+    private void InitUIEvent()
+    {
+        this.HeadPortraitButton.GetComponent<Button>().onClick.AddListener(HeadPortraitButtonOnClick);
+    }
+
     /// <summary>
     /// 检测每日登陆UI是否显示
     /// </summary>
@@ -39,6 +46,14 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
         //设置 当前是第几天
         _containerMeiRiLogIn.GetComponent<ContainerMeiRiLogInUIController>().SetDailyRewards(1);
 
+    }
+
+    /// <summary>
+    /// 头像按钮点击事件
+    /// </summary>
+    private void HeadPortraitButtonOnClick()
+    {
+        PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_HEAD_SELECTION);
     }
     #endregion
 }
