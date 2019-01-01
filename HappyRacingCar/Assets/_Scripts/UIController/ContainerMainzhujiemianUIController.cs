@@ -19,6 +19,9 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     private void InitUIEvent()
     {
         this.HeadPortraitButton.GetComponent<Button>().onClick.AddListener(HeadPortraitButtonOnClick);
+        this.GoodFriendButton.GetComponent<Button>().onClick.AddListener(GoodFriendButtonOnClick);
+        this.NoticeButton.GetComponent<Button>().onClick.AddListener(NoticeButtonOnClick);
+        this.SetUpButton.GetComponent<Button>().onClick.AddListener(SetUpButtonOnClick);
     }
 
     /// <summary>
@@ -54,6 +57,27 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     private void HeadPortraitButtonOnClick()
     {
         PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_HEAD_SELECTION);
+    }
+    /// <summary>
+    /// 添加好友按钮点击事件
+    /// </summary>
+    private void GoodFriendButtonOnClick()
+    {
+        PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupTip, UIControllerConst.UI_PREFEB_TAN_KUANG);
+    }
+    /// <summary>
+    /// 公告按钮响应事件
+    /// </summary>
+    private void NoticeButtonOnClick()
+    {
+        PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_NOTICE);
+    }
+    /// <summary>
+    /// 设置按钮响应事件
+    /// </summary>
+    private void SetUpButtonOnClick()
+    {
+        PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_SET_UP);
     }
     #endregion
 }

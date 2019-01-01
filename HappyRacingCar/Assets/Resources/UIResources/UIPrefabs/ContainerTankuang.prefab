@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224399400143952848}
   - component: {fileID: 222706507169806158}
+  - component: {fileID: 114576778824081236}
   m_Layer: 5
   m_Name: ContainerTankuang
   m_TagString: Untagged
@@ -287,6 +288,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114576778824081236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1290706706758536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73ce2338e442a84fbe468c192185da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114911964211962150
 MonoBehaviour:
   m_ObjectHideFlags: 1

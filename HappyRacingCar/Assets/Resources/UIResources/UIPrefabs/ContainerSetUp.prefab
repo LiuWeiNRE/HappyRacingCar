@@ -56,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224174191814600246}
   - component: {fileID: 222521198522049672}
+  - component: {fileID: 114344411276833174}
   m_Layer: 5
   m_Name: ContainerSetUp
   m_TagString: Untagged
@@ -513,6 +514,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114344411276833174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1150555777282362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce6b1fb872cb9340bbb5ddf037ae37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114403043835032528
 MonoBehaviour:
   m_ObjectHideFlags: 1

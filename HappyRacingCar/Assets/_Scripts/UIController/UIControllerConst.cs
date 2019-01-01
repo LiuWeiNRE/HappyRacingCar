@@ -17,6 +17,18 @@ public class UIControllerConst
     /// 头像更换界面
     /// </summary>
     public const string UI_PREFEB_HEAD_SELECTION = "ContainerHeadSelection";
+    /// <summary>
+    /// 敬请期待弹出界面
+    /// </summary>
+    public const string UI_PREFEB_TAN_KUANG = "ContainerTankuang";
+    /// <summary>
+    /// 公告界面
+    /// </summary>
+    public const string UI_PREFEB_NOTICE = "ContainerNotice";
+    /// <summary>
+    /// 设置界面
+    /// </summary>
+    public const string UI_PREFEB_SET_UP = "ContainerSetUp";
     #endregion
 
     #endregion
