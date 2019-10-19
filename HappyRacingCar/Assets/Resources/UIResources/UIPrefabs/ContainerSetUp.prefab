@@ -56,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224174191814600246}
   - component: {fileID: 222521198522049672}
+  - component: {fileID: 225663522592498122}
   - component: {fileID: 114344411276833174}
   m_Layer: 5
   m_Name: ContainerSetUp
@@ -1223,3 +1224,14 @@ RectTransform:
   m_AnchoredPosition: {x: -108, y: -40}
   m_SizeDelta: {x: 400, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225663522592498122
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1150555777282362}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
