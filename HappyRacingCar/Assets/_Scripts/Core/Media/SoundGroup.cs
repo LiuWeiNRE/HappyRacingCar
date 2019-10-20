@@ -9,8 +9,10 @@ public class SoundGroup
     #region -- 变量定义
     private float volume = 1;   //音量
     private bool mute = false;  //分组内是否静音
+
     //分组内播放的声音，是否在声音加载完毕的时候才可以播放。通常背景音乐可以一边加载一边播放。
     private bool loadOverToPlay = false;
+
     //记录所有的声音单元，注意最小的但是 SoundItem,且 key 和 value 都是 SoundItem 类型。
     private Dictionary<SoundItem, SoundItem> allChannel = new Dictionary<SoundItem, SoundItem>();
     #endregion
