@@ -1,6 +1,7 @@
 ﻿#忽略文件夹
 HappyRacingCar/.vs
 HappyRacingCar/Library
+HappyRacingCar/obj
 HappyRacingCar/UnityPackageManager
 HappyRacingCar/Temp
 #忽略文件
