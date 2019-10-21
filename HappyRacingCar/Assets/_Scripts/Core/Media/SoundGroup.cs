@@ -17,11 +17,25 @@ public class SoundGroup
     private Dictionary<SoundItem, SoundItem> allChannel = new Dictionary<SoundItem, SoundItem>();
     #endregion
 
-    #region -- 系统函数
-
-    #endregion
-
     #region -- 自定义函数
+    public SoundGroup(string _name) { }
+
+    public bool Mute
+    {
+        get { return mute; }
+        set
+        {
+            if (value != mute)
+            {
+                mute = value;
+                foreach (KeyValuePair<SoundItem,SoundItem> item in allChannel)
+                {
+                    item.Key.Mute = value;
+                }
+            }
+        }
+    }
+
     internal void OnSoundOver(SoundItem _soundItem)
     {
         allChannel[_soundItem] = _soundItem;

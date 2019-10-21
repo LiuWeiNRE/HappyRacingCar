@@ -16,6 +16,29 @@ public class SoundItem
         get { return soundGroup; }
         set { soundGroup = value; }
     }
+    public bool Mute
+    {
+        get 
+        {
+            if (IsOver())
+            {
+                return false;
+            }
+            else
+            {
+                return audioSource.mute;
+            }
+        }
+
+        set
+        {
+            if (IsOver() == false)
+            {
+                audioSource.mute = value;
+            }
+        }
+    }
+
     public AudioSource AudioSource
     {
         get { return audioSource; }
