@@ -9,13 +9,27 @@ public class SoundPlayer
 {
     #region -- 变量定义
     internal int soundCount = 0;//声音播放的计数器
+    private string url;//声音路径
     //记录所有的声音Item值
     private Dictionary<SoundItem, SoundItem> allChannel = new Dictionary<SoundItem, SoundItem>();
-    private List<AudioSource> unUsePool;//未使用的Pool池
+    private List<AudioSource> unUsedPool;//未使用的Pool池
+    private AudioClip clip;//具体的声音Clip。
     internal GameObject playObject;//游戏对象节点：播放声音的对象
     #endregion
 
     #region -- 自定义函数
+    public SoundPlayer(string _url)
+    {
+        unUsedPool = new List<AudioSource>();
+        url = _url;
+        clip = ResourcesManager.Load<AudioClip>(url);
+        if (clip == null)
+        {
+            Debug.LogError("not find sound file:" + url);
+        }
+        playObject = new GameObject(url);
+        playObject.transform.parent = SoundManager.soundPlayerObject.transform;
+    }
     internal void OnSoundOver(SoundItem _soundItem, bool _remove = true)
     {
         soundCount--;
@@ -23,7 +37,7 @@ public class SoundPlayer
 
         if (_go == playObject)
         {
-            unUsePool.Add(_soundItem.AudioSource);
+            unUsedPool.Add(_soundItem.AudioSource);
             _soundItem.AudioSource.enabled = false;
         }
         else if (_go.name == "SoundClip")//具体看Item的初始化代码

@@ -161,6 +161,21 @@ public class SoundManager
         return _soundGroup;
     }
     /// <summary>
+    /// 取得指定声音的播放器。
+    /// </summary>
+    /// <param name="_url"></param>
+    /// <returns></returns>
+    public static SoundPlayer GetSoundPlayer(string _url)
+    {
+        SoundPlayer _soundPlayer = (SoundPlayer)allSound[_url];
+        if (_soundPlayer == null)
+        {
+            _soundPlayer = new SoundPlayer(_url);
+            allSound[_url] = _soundPlayer;
+        }
+        return _soundPlayer;
+    }
+    /// <summary>
     /// 释放所有声音中Player中的内存
     /// </summary>
     public static void GC()
