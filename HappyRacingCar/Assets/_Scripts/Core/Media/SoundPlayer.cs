@@ -9,7 +9,9 @@ public class SoundPlayer
 {
     #region -- 变量定义
     internal int soundCount = 0;//声音播放的计数器
+    private bool loadOver;
     private string url;//声音路径
+    private float volume;//音量
     //记录所有的声音Item值
     private Dictionary<SoundItem, SoundItem> allChannel = new Dictionary<SoundItem, SoundItem>();
     private List<AudioSource> unUsedPool;//未使用的Pool池
@@ -29,6 +31,82 @@ public class SoundPlayer
         }
         playObject = new GameObject(url);
         playObject.transform.parent = SoundManager.soundPlayerObject.transform;
+    }
+
+    public bool LoadOver
+    {
+        get { return loadOver; }
+    }
+    public float Volume
+    {
+        get { return volume; }
+        set
+        {
+            if (value == volume)
+            {
+                return;
+            }
+
+            foreach (KeyValuePair<SoundItem, SoundItem> item in allChannel)
+            {
+                item.Key.Volume = value;
+            }
+            volume = value;
+        }
+    }
+
+    internal AudioSource GetNextAudioSource(GameObject _go)
+    {
+        AudioSource _audioSource;
+
+        if (_go != null)
+        {
+            _audioSource = _go.AddComponent<AudioSource>();
+            _audioSource.clip = clip;
+            _audioSource.volume = Volume;
+            _audioSource.playOnAwake = false;
+            _audioSource.minDistance = 0;
+            _audioSource.maxDistance = 30;
+            _audioSource.rolloffMode = AudioRolloffMode.Linear;//线性播放
+            return _audioSource;
+        }
+        else
+        {
+            if (unUsedPool.Count != 0)
+            {
+                _audioSource = unUsedPool[unUsedPool.Count - 1];
+                unUsedPool.RemoveAt(unUsedPool.Count - 1);
+                _audioSource.enabled = true;
+            }
+            else
+            {
+                _audioSource = playObject.AddComponent<AudioSource>();
+                _audioSource.clip = clip;
+                _audioSource.volume = volume;
+                _audioSource.playOnAwake = false;
+                _audioSource.minDistance = 10000;
+            }
+            return _audioSource;
+        }
+    }
+    public SoundItem PlaySound(bool _loop = false, bool _onLoadOver = true, GameObject _go = null)
+    {
+        if (!_loop && _onLoadOver && !LoadOver)
+        {
+            return null;
+        }
+        else
+        {
+            SoundItem _soundItem = new SoundItem(0, _loop, this, _go);
+            if (Volume != 1)
+            {
+                _soundItem.Volume = Volume;
+            }
+
+            allChannel[_soundItem] = _soundItem;
+            soundCount++;
+            return _soundItem;
+        }
     }
     internal void OnSoundOver(SoundItem _soundItem, bool _remove = true)
     {
@@ -58,6 +136,14 @@ public class SoundPlayer
         {
             allChannel.Remove(_soundItem);
         }
+    }
+    public void StopAll()
+    {
+        foreach (KeyValuePair<SoundItem, SoundItem> item in allChannel)
+        {
+            item.Key.Stop();
+        }
+        allChannel.Clear();
     }
     public void GC()
     {

@@ -141,7 +141,7 @@ public class SoundManager
         }
     }
     /// <summary>
-    /// 获取声音组对象
+    /// 根据组名称获取声音组对象
     /// </summary>
     /// <param name="_groupName"></param>
     /// <returns></returns>
@@ -174,6 +174,76 @@ public class SoundManager
             allSound[_url] = _soundPlayer;
         }
         return _soundPlayer;
+    }
+    /// <summary>
+    /// 根据路径播放一个声音
+    /// </summary>
+    /// <param name="_url"></param>
+    /// <param name="_loop"></param>
+    /// <param name="_groupName"></param>
+    /// <returns></returns>
+    public static SoundItem Play(string _url, bool _loop = false, string _groupName = "effect")
+    {
+        SoundGroup _soundGroup = GetSoundGroup(_groupName);
+        return _soundGroup.Play(_url, _loop);
+    }
+    /// <summary>
+    /// 设置组的音量值
+    /// </summary>
+    /// <param name="_groupName"></param>
+    /// <param name="_volume"></param>
+    /// <param name="_time"></param>
+    public static void SetGroupVolume(string _groupName, float _volume = 1, int _time = 1000)
+    {
+        GetSoundGroup(_groupName).Volume = _volume;
+    }
+    /// <summary>
+    /// 关闭指定的声音
+    /// </summary>
+    /// <param name="_url"></param>
+    public static void StopSound(string _url)
+    {
+        SoundPlayer _soundPlayer = GetSoundPlayer(_url);
+        if (_soundPlayer != null)
+        {
+            _soundPlayer.StopAll();
+        }
+    }
+    /// <summary>
+    /// 关闭组内的所有声音
+    /// </summary>
+    /// <param name="_groupName"></param>
+    public static void StopGroup(string _groupName)
+    {
+        GetSoundGroup(_groupName).StopAll();
+    }
+    /// <summary>
+    /// 关闭所有声音
+    /// </summary>
+    public static void StopAll()
+    {
+        foreach (SoundPlayer item in allSound.Values)
+        {
+            item.StopAll();
+        }
+    }
+    /// <summary>
+    /// 释放声音，并放回释放结果
+    /// </summary>
+    /// <param name="_url"></param>
+    /// <returns></returns>
+    public static bool OnReleaseSound(string _url)
+    {
+        SoundPlayer _soundPlayer = (SoundPlayer)allSound[_url];
+        if (_soundPlayer.soundCount <= 0)
+        {
+            allSound.Remove(_url);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     /// <summary>
     /// 释放所有声音中Player中的内存
