@@ -8,15 +8,14 @@ using UnityEngine;
 public class SoundPlayer
 {
     #region -- 变量定义
-    internal int soundCount = 0;//声音播放的计数器
-    private bool loadOver;
+    public int soundCount = 0;//声音播放的计数器
     private string url;//声音路径
-    private float volume;//音量
+    private float volume = 1;//音量
     //记录所有的声音Item值
     private Dictionary<SoundItem, SoundItem> allChannel = new Dictionary<SoundItem, SoundItem>();
     private List<AudioSource> unUsedPool;//未使用的Pool池
     private AudioClip clip;//具体的声音Clip。
-    internal GameObject playObject;//游戏对象节点：播放声音的对象
+    public GameObject playObject;//游戏对象节点：播放声音的对象
     #endregion
 
     #region -- 自定义函数
@@ -33,9 +32,9 @@ public class SoundPlayer
         playObject.transform.parent = SoundManager.soundPlayerObject.transform;
     }
 
-    public bool LoadOver
+    public string URL
     {
-        get { return loadOver; }
+        get { return url; }
     }
     public float Volume
     {
@@ -55,7 +54,12 @@ public class SoundPlayer
         }
     }
 
-    internal AudioSource GetNextAudioSource(GameObject _go)
+    /// <summary>
+    /// 获取一个声音播放源
+    /// </summary>
+    /// <param name="_go"></param>
+    /// <returns></returns>
+    public AudioSource GetNextAudioSource(GameObject _go)
     {
         AudioSource _audioSource;
 
@@ -89,9 +93,16 @@ public class SoundPlayer
             return _audioSource;
         }
     }
+    /// <summary>
+    /// 播放声音
+    /// </summary>
+    /// <param name="_loop"></param>
+    /// <param name="_onLoadOver"></param>
+    /// <param name="_go"></param>
+    /// <returns></returns>
     public SoundItem PlaySound(bool _loop = false, bool _onLoadOver = true, GameObject _go = null)
     {
-        if (!_loop && _onLoadOver && !LoadOver)
+        if (!_loop && _onLoadOver)
         {
             return null;
         }
@@ -108,7 +119,12 @@ public class SoundPlayer
             return _soundItem;
         }
     }
-    internal void OnSoundOver(SoundItem _soundItem, bool _remove = true)
+    /// <summary>
+    /// 声音播放完毕后的事件
+    /// </summary>
+    /// <param name="_soundItem"></param>
+    /// <param name="_remove"></param>
+    public void OnSoundOver(SoundItem _soundItem, bool _remove = true)
     {
         soundCount--;
         GameObject _go = _soundItem.AudioSource.gameObject;
@@ -137,6 +153,9 @@ public class SoundPlayer
             allChannel.Remove(_soundItem);
         }
     }
+    /// <summary>
+    /// 停止播放所有的声音
+    /// </summary>
     public void StopAll()
     {
         foreach (KeyValuePair<SoundItem, SoundItem> item in allChannel)
@@ -145,6 +164,9 @@ public class SoundPlayer
         }
         allChannel.Clear();
     }
+    /// <summary>
+    /// 清除缓存
+    /// </summary>
     public void GC()
     {
         if (allChannel.Count == 0)

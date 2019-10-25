@@ -18,6 +18,8 @@ public partial class ContainerLogindengluUIController : UIControllerBase
         this.ButtonQiehuanzhanghao.GetComponent<Button>().onClick.AddListener(QieHuanZhangHaoButtonOnClick);
         this.ButtonPingtaidenglu.GetComponent<Button>().onClick.AddListener(PingTaiDengLuButtonOnClick);
         this.ButtonKaishiyouxi.GetComponent<Button>().onClick.AddListener(KaiShiYouXiButtonOnClick);
+
+        SoundManager.Play("SoundResources/Login", true, "bg");
     }
     #endregion
 

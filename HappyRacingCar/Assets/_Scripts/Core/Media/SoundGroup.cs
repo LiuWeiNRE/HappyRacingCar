@@ -63,6 +63,35 @@ public class SoundGroup
             }
         }
     }
+    /// <summary>
+    /// 在指定坐标位置生成一个声音源，并播放指定声音
+    /// </summary>
+    /// <param name="_url"></param>
+    /// <param name="_pos"></param>
+    /// <param name="_loop"></param>
+    /// <returns></returns>
+    public SoundItem Play(string _url, Vector3 _pos, bool _loop = false)
+    {
+        GameObject _go = new GameObject("SoundClip");
+        _go.transform.position = _pos;
+        SoundItem _soundItem = Play(_url, _loop, _go);
+        if (_soundItem == null)
+        {
+            GameObject.DestroyObject(_go);
+        }
+        else
+        {
+            _go.transform.parent = _soundItem.SoundPlayer.playObject.transform;
+        }
+        return _soundItem;
+    }
+    /// <summary>
+    /// 根据路径播放指定声音
+    /// </summary>
+    /// <param name="_url"></param>
+    /// <param name="_loop"></param>
+    /// <param name="_go"></param>
+    /// <returns></returns>
     public SoundItem Play(string _url, bool _loop = false, GameObject _go = null)
     {
         if (_url == null || _url == "")
@@ -106,16 +135,27 @@ public class SoundGroup
         }
         return _soundItem;
     }
+    /// <summary>
+    /// 添加声音到组中
+    /// </summary>
+    /// <param name="_soundItem"></param>
     private void AddSoundItem(SoundItem _soundItem)
     {
         allChannel[_soundItem] = _soundItem;
         _soundItem.SoundGroup = this;
     }
-    internal void OnSoundOver(SoundItem _soundItem)
+    /// <summary>
+    /// 声音播放完之后的回调函数
+    /// </summary>
+    /// <param name="_soundItem"></param>
+    public void OnSoundOver(SoundItem _soundItem)
     {
-        allChannel[_soundItem] = _soundItem;
-        _soundItem.SoundGroup = this;
+        allChannel.Remove(_soundItem);
+        singleChangleCatch.Remove(_soundItem.SoundPlayer.URL);
     }
+    /// <summary>
+    /// 关闭组内的所有声音
+    /// </summary>
     public void StopAll()
     {
         foreach (KeyValuePair<SoundItem, SoundItem> item in allChannel)

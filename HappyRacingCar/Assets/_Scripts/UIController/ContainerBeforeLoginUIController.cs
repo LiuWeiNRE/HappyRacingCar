@@ -18,6 +18,8 @@ public partial class ContainerBeforeLoginUIController : UIControllerBase
                  PanelMainUIController.Instance.EnterLoginPanel();
              });
          });
+        //设置DOTween使用安全模式运行
+        DOTween.useSafeMode = true;
     }
     #endregion
 

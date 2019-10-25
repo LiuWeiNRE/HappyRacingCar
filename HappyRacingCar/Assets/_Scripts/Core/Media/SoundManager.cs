@@ -9,11 +9,11 @@ using System.Collections;
 public class SoundManager
 {
     #region -- 变量定义
-    internal static Hashtable allSound = new Hashtable();//保存所有的声音路径和组信息，allSound[url] = player
+    public static Hashtable allSound = new Hashtable();//保存所有的声音路径和组信息，allSound[url] = player
     private static Hashtable allGroupInfo = new Hashtable();//保存组内信息 allGroupInfo[name] = soundGroup
     private static float volume = 1;//音量大小 0~1
     private static bool mute;//全局静音控制
-    internal static GameObject soundPlayerObject;//常驻内存的声音对象
+    public static GameObject soundPlayerObject;//常驻内存的声音对象
     private static SoundGroup bgSoundGroup;//背景组
     private static SoundGroup effectSoundGroup;//音效组
     private static AudioListener audioListener;//声音监听器
@@ -250,7 +250,7 @@ public class SoundManager
     /// </summary>
     public static void GC()
     {
-        foreach (SoundPlayer item in allSound)
+        foreach (SoundPlayer item in allSound.Values)
         {
             item.GC();
         }

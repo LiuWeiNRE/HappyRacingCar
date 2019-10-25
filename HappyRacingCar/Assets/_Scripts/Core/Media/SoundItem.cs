@@ -34,7 +34,7 @@ public class SoundItem
             UpdateVolume();
         }
     }
-    internal SoundGroup SoundGroup
+    public SoundGroup SoundGroup
     {
         get { return soundGroup; }
         set { soundGroup = value; }
@@ -64,6 +64,10 @@ public class SoundItem
     public AudioSource AudioSource
     {
         get { return audioSource; }
+    }
+    public SoundPlayer SoundPlayer
+    {
+        get { return soundPlayer; }
     }
     public float LastPlayTime
     {

@@ -36,6 +36,8 @@ public partial class ContainerSetUpUIController : UIControllerBase
         this.MusicEffectONButton.GetComponent<Button>().onClick.AddListener(MusicEffectONButtonOnClick);
         this.MusicEffectOFFButton.GetComponent<Button>().onClick.AddListener(MusicEffectOFFButtonOnClick);
         
+        //TODO
+
         //关闭按钮特效
         Sequence _mySeq = DOTween.Sequence();
         _mySeq.Append(this.CloseButton.transform.DOScale(new Vector3(0.9f, 0.9f, 0.9f), 1).SetEase(Ease.Linear));
@@ -48,6 +50,8 @@ public partial class ContainerSetUpUIController : UIControllerBase
         this.MusicONButton.SetActive(false);
         this.MusicOFFButton.SetActive(true);
 
+        SoundManager.BGSoundGroup.Mute = true;
+
         //TODO
     }
     private void MusicOFFButtonOnClick()
@@ -55,6 +59,7 @@ public partial class ContainerSetUpUIController : UIControllerBase
         this.MusicONButton.SetActive(true);
         this.MusicOFFButton.SetActive(false);
 
+        SoundManager.BGSoundGroup.Mute = false;
         //TODO
     }
     private void MusicEffectONButtonOnClick()
@@ -62,6 +67,7 @@ public partial class ContainerSetUpUIController : UIControllerBase
         this.MusicEffectONButton.SetActive(false);
         this.MusicEffectOFFButton.SetActive(true);
 
+        SoundManager.EffectSoundGroup.Mute = true;
         //TODO
     }
     private void MusicEffectOFFButtonOnClick()
@@ -69,6 +75,7 @@ public partial class ContainerSetUpUIController : UIControllerBase
         this.MusicEffectONButton.SetActive(true);
         this.MusicEffectOFFButton.SetActive(false);
 
+        SoundManager.EffectSoundGroup.Mute = false;
         //TODO
     }
     private void CloseButtonOnClick()
