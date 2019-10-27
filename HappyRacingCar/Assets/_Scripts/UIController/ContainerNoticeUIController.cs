@@ -19,7 +19,7 @@ public partial class ContainerNoticeUIController : UIControllerBase
     #region --自定义函数
     private void Init()
     {
-        //节目的弹出动画
+        //弹出动画
         this.transform.localScale = Vector3.zero;
         this.transform.DOScale(Vector3.one, 0.25f).SetEase(Ease.OutBack);
     }
@@ -33,6 +33,7 @@ public partial class ContainerNoticeUIController : UIControllerBase
     /// </summary>
     private void CloseButtonOnClick()
     {
+        SoundManager.EffectSoundGroup.Play("SoundResources/Close");
         this.MaskBackGround.SetActive(false);
         this.transform.DOScale(Vector3.zero, 0.25f).OnComplete(delegate ()
          {

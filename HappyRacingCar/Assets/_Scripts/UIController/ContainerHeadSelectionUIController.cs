@@ -41,11 +41,8 @@ public partial class ContainerHeadSelectionUIController : UIControllerBase
     /// </summary>
     private void CloseButtonOnClick()
     {
-        this.MaskBackGround.SetActive(false);
-        this.transform.DOScale(Vector3.zero, 0.25f).OnComplete(delegate ()
-        {
-            this.Close();
-        }).SetUpdate(true).SetEase(Ease.InBack);
+        ClosePanel();
+        SoundManager.EffectSoundGroup.Play("SoundResources/Close");
     }
     /// <summary>
     /// 所有头像按钮响应事件
@@ -56,7 +53,19 @@ public partial class ContainerHeadSelectionUIController : UIControllerBase
         Sprite _headSprite = _pressedHeadButton.GetComponentsInChildren<Image>()[1].sprite;
         //暂未更新数据
         Debug.Log(_headSprite.name);
-        CloseButtonOnClick();
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
+        ClosePanel();
+    }
+    /// <summary>
+    /// 关闭界面。
+    /// </summary>
+    private void ClosePanel()
+    {
+        this.MaskBackGround.SetActive(false);
+        this.transform.DOScale(Vector3.zero, 0.25f).OnComplete(delegate ()
+        {
+            this.Close();
+        }).SetUpdate(true).SetEase(Ease.InBack);
     }
     #endregion
 }

@@ -47,6 +47,7 @@ public partial class ContainerSetUpUIController : UIControllerBase
 
     private void MusicONButtonOnClick()
     {
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
         this.MusicONButton.SetActive(false);
         this.MusicOFFButton.SetActive(true);
 
@@ -56,6 +57,7 @@ public partial class ContainerSetUpUIController : UIControllerBase
     }
     private void MusicOFFButtonOnClick()
     {
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
         this.MusicONButton.SetActive(true);
         this.MusicOFFButton.SetActive(false);
 
@@ -64,6 +66,7 @@ public partial class ContainerSetUpUIController : UIControllerBase
     }
     private void MusicEffectONButtonOnClick()
     {
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
         this.MusicEffectONButton.SetActive(false);
         this.MusicEffectOFFButton.SetActive(true);
 
@@ -72,6 +75,7 @@ public partial class ContainerSetUpUIController : UIControllerBase
     }
     private void MusicEffectOFFButtonOnClick()
     {
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
         this.MusicEffectONButton.SetActive(true);
         this.MusicEffectOFFButton.SetActive(false);
 
@@ -80,9 +84,10 @@ public partial class ContainerSetUpUIController : UIControllerBase
     }
     private void CloseButtonOnClick()
     {
+        SoundManager.EffectSoundGroup.Play("SoundResources/Close");
         this.MaskBackGround.SetActive(false);
         this.transform.DOScale(Vector3.zero, 0.25f).OnComplete(delegate ()
-         {
+         { 
              this.Close();
          }).SetEase(Ease.InBack);
     }

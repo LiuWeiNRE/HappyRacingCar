@@ -10,12 +10,18 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     #region --系统函数
     private void Start()
     {
+        Init();
         CheckMeiRiLogInUI();
         InitUIEvent();
     }
     #endregion
 
     #region --自定义函数
+    private void Init()
+    {
+        SoundManager.StopAll();
+        SoundManager.BGSoundGroup.Play("SoundResources/UIMain", true);
+    }
     private void InitUIEvent()
     {
         this.HeadPortraitButton.GetComponent<Button>().onClick.AddListener(HeadPortraitButtonOnClick);
@@ -57,6 +63,7 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     private void HeadPortraitButtonOnClick()
     {
         PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_HEAD_SELECTION);
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
     }
     /// <summary>
     /// 添加好友按钮点击事件
@@ -64,6 +71,7 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     private void GoodFriendButtonOnClick()
     {
         PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupTip, UIControllerConst.UI_PREFEB_TAN_KUANG);
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
     }
     /// <summary>
     /// 公告按钮响应事件
@@ -71,6 +79,7 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     private void NoticeButtonOnClick()
     {
         PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_NOTICE);
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
     }
     /// <summary>
     /// 设置按钮响应事件
@@ -78,6 +87,7 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     private void SetUpButtonOnClick()
     {
         PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_SET_UP);
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
     }
     #endregion
 }

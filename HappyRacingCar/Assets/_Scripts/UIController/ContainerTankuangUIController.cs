@@ -39,9 +39,10 @@ public partial class ContainerTankuangUIController : UIControllerBase
     /// </summary>
     private void CloseButtonOnClick()
     {
+        SoundManager.EffectSoundGroup.Play("SoundResources/Close");
         this.MaskBackGround.SetActive(false);
         this.transform.DOScale(Vector3.zero, 0.25f).OnComplete(delegate ()
-         {
+         {    
              this.Close();
          }).SetEase(Ease.InBack);
     }

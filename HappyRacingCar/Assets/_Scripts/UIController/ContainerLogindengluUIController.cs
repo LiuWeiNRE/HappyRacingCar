@@ -28,17 +28,20 @@ public partial class ContainerLogindengluUIController : UIControllerBase
     {
         boolPlatformLoginButton = true;
         SwitchPlatformLoginOrChangeNumber(boolPlatformLoginButton);
+        SoundManager.EffectSoundGroup.Play("SoundResources/moshixuanze");
     }
     private void PingTaiDengLuButtonOnClick()
     {
         boolPlatformLoginButton = false;
         SwitchPlatformLoginOrChangeNumber(boolPlatformLoginButton);
+        SoundManager.EffectSoundGroup.Play("SoundResources/moshixuanze");
     }
     private void KaiShiYouXiButtonOnClick()
     {
         Debug.Log("开始游戏！");
         PanelMainUIController.Instance.CleanAllUI();
         PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.Bottom, "ContainerLoginxuanren");
+        SoundManager.EffectSoundGroup.Play("SoundResources/moshixuanze");
     }
 
     /// <summary>
