@@ -25,6 +25,9 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     private void InitUIEvent()
     {
         this.HeadPortraitButton.GetComponent<Button>().onClick.AddListener(HeadPortraitButtonOnClick);
+        this.JiaHaoTiLiButton.GetComponent<Button>().onClick.AddListener(JiaHaoTiLiButtonOnClick);
+        this.JiaHaoZuanShiButton.GetComponent<Button>().onClick.AddListener(JiaHaoZuanShiButtonOnClick);
+        this.JiaHaoJinBiButton.GetComponent<Button>().onClick.AddListener(JiaHaoJinBiButtonOnClick);
         this.GoodFriendButton.GetComponent<Button>().onClick.AddListener(GoodFriendButtonOnClick);
         this.NoticeButton.GetComponent<Button>().onClick.AddListener(NoticeButtonOnClick);
         this.SetUpButton.GetComponent<Button>().onClick.AddListener(SetUpButtonOnClick);
@@ -64,6 +67,33 @@ public partial class ContainerMainzhujiemianUIController : UIControllerBase
     {
         PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_HEAD_SELECTION);
         SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
+    }
+    /// <summary>
+    /// 增加体力按钮响应事件
+    /// </summary>
+    private void JiaHaoTiLiButtonOnClick()
+    {
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
+        ContainerShopUIController.CurrentShopType = ContainerShopUIController.ShopType.ShopPower;
+        PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_SHOP);
+    }
+    /// <summary>
+    /// 增加钻石按钮响应事件
+    /// </summary>
+    private void JiaHaoZuanShiButtonOnClick()
+    {
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
+        ContainerShopUIController.CurrentShopType = ContainerShopUIController.ShopType.ShopDiamond;
+        PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_SHOP);
+    }
+    /// <summary>
+    /// 增加金币按钮响应试卷
+    /// </summary>
+    private void JiaHaoJinBiButtonOnClick()
+    {
+        SoundManager.EffectSoundGroup.Play("SoundResources/dakaianniu");
+        ContainerShopUIController.CurrentShopType = ContainerShopUIController.ShopType.ShopCoin;
+        PanelMainUIController.Instance.AddUIPanel(PanelMainUIController.UILayer.PopupWindow, UIControllerConst.UI_PREFEB_SHOP);
     }
     /// <summary>
     /// 添加好友按钮点击事件

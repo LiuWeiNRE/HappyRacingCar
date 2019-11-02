@@ -18,6 +18,10 @@ public class UIControllerConst
     /// </summary>
     public const string UI_PREFEB_HEAD_SELECTION = "ContainerHeadSelection";
     /// <summary>
+    /// 商城界面
+    /// </summary>
+    public const string UI_PREFEB_SHOP = "ContainerShop";
+    /// <summary>
     /// 敬请期待弹出界面
     /// </summary>
     public const string UI_PREFEB_TAN_KUANG = "ContainerTankuang";
