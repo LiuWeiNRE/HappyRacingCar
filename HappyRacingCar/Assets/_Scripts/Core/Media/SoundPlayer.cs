@@ -65,7 +65,11 @@ public class SoundPlayer
 
         if (_go != null)
         {
-            _audioSource = _go.AddComponent<AudioSource>();
+            _audioSource = _go.GetComponent<AudioSource>();
+            if (_audioSource == null)
+            {
+                _audioSource = _go.AddComponent<AudioSource>();
+            }
             _audioSource.clip = clip;
             _audioSource.volume = Volume;
             _audioSource.playOnAwake = false;
@@ -84,7 +88,11 @@ public class SoundPlayer
             }
             else
             {
-                _audioSource = playObject.AddComponent<AudioSource>();
+                _audioSource = playObject.GetComponent<AudioSource>();
+                if (_audioSource == null)
+                {
+                    _audioSource = playObject.AddComponent<AudioSource>();
+                }
                 _audioSource.clip = clip;
                 _audioSource.volume = volume;
                 _audioSource.playOnAwake = false;

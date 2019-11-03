@@ -31,6 +31,7 @@ public partial class ContainerMeiRiLogInUIController : UIControllerBase
     }
     private void OKButtonOnClick()
     {
+        SoundManager.EffectSoundGroup.Play("SoundResources/queren");
         this.MaskBackGround.SetActive(false);
         this.transform.DOScale(Vector3.zero, 0.25f).OnComplete(delegate ()
         {

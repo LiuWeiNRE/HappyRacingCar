@@ -1,4 +1,4 @@
-/* UISource File Create Data: 10/31/2019 11:39:19 PM*/
+/* UISource File Create Data: 11/3/2019 12:30:58 PM*/
 
 using UnityEngine;
 
@@ -12,8 +12,8 @@ public partial class ContainerShopUIController : UIControllerBase
     private Vector3 uiOriginalPositionToggle2ZuanShi;
     private GameObject toggle3Jinbi;
     private Vector3 uiOriginalPositionToggle3Jinbi;
-    private GameObject toggle14DaoJu;
-    private Vector3 uiOriginalPositionToggle14DaoJu;
+    private GameObject toggle4DaoJu;
+    private Vector3 uiOriginalPositionToggle4DaoJu;
     private GameObject backButton;
     private Vector3 uiOriginalPositionBackButton;
     private GameObject jiaHaoTiLiButton;
@@ -134,27 +134,27 @@ public partial class ContainerShopUIController : UIControllerBase
             return uiOriginalPositionToggle3Jinbi;
         }
     }
-    public GameObject Toggle14DaoJu
+    public GameObject Toggle4DaoJu
     {
         get
         {
-            if (toggle14DaoJu == null)
+            if (toggle4DaoJu == null)
             {
-                toggle14DaoJu = this.transform.Find("Toggle14DaoJu").gameObject;
-                uiOriginalPositionToggle14DaoJu = toggle14DaoJu.transform.localPosition;
+                toggle4DaoJu = this.transform.Find("Toggle4DaoJu").gameObject;
+                uiOriginalPositionToggle4DaoJu = toggle4DaoJu.transform.localPosition;
             }
-            return toggle14DaoJu;
+            return toggle4DaoJu;
         }
     }
-    public Vector3 UIOriginalPositionToggle14DaoJu
+    public Vector3 UIOriginalPositionToggle4DaoJu
     {
         get
         {
-            if (toggle14DaoJu == null)
+            if (toggle4DaoJu == null)
             {
-                return Toggle14DaoJu.transform.localPosition;
+                return Toggle4DaoJu.transform.localPosition;
             }
-            return uiOriginalPositionToggle14DaoJu;
+            return uiOriginalPositionToggle4DaoJu;
         }
     }
     public GameObject BackButton
